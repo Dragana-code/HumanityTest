@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace HumanityTest.Page.Objects
 {
@@ -11,37 +12,36 @@ namespace HumanityTest.Page.Objects
         public static readonly string Country_XPath = "//select[@id='country']";
         public static readonly string DefaultLanguage_XPath = "//td[contains(@class,'nowrap')]//select[contains(@name,'language')]";
         public static readonly string TimeFormat_XPath = "//select[contains(@name,'pref_24hr')]";
-
+        public static readonly string SaveSettings_XPath = "//button[@id='act_primary']";
 
         public static IWebElement GetCountry(IWebDriver wd)
         {
             return wd.FindElement(By.XPath(Country_XPath));
         }
 
-        public static void ClickCountry(IWebDriver wd)
-        {
-            GetCountry(wd).Click();//verovatno send text
-        }
+        
 
         public static IWebElement GetDefaultLanguage(IWebDriver wd)
         {
             return wd.FindElement(By.XPath(DefaultLanguage_XPath));
         }
 
-        public static void ClickDefaultLanguage(IWebDriver wd)
-        {
-            GetDefaultLanguage(wd).Click();
-        }
+        
 
         public static IWebElement GetTimeFormat(IWebDriver wd)
         {
             return wd.FindElement(By.XPath(TimeFormat_XPath));
         }
 
-        public static void ClickTimeFormat(IWebDriver wd)
+        public static IWebElement GetSaveSettings(IWebDriver wd)
         {
-            GetTimeFormat(wd).Click();
+            return wd.FindElement(By.XPath(SaveSettings_XPath));
         }
+        public static void ClickSaveSettings(IWebDriver wd)
+        {
+            GetSaveSettings(wd).Click();
+        }
+
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
 
+
 namespace HumanityTest.Page.Objects
 {
     public static class HumanityStaff
@@ -10,15 +11,18 @@ namespace HumanityTest.Page.Objects
         public static readonly string STAFF_URL = "https://nebuchadnezzar.humanity.com/app/staff/add/";
 
         public static readonly string AddEmployees_XPath = "//button[@id='act_primary']";
-        public static readonly string Employee1_XPath = "//a[contains(text(),'Ander Thomason')]";
-        public static readonly string Employee2_XPath = "//a[contains(text(),'Thom Thomson')]";
-        public static readonly string Employee3_XPath = "//a[contains(text(),'Thomas Anderson')]";
+        public static readonly string EmployeePart1 = "//a[contains(text(),'";
+        public static readonly string EmployeePart2 = "')]";
+        public static readonly string employee1 = "Andre Thomason";
+        public static readonly string employee2 = "Thomas Anderson";
+        public static readonly string employee3 = "Thomas Thomason";
 
-        public static readonly string AddEmployeeFirstName_XPath = "//input[@id='_asf1']";
-        public static readonly string AddEmployeeLastName_XPath = "//input[@id='_asl1']";
-        public static readonly string AddEmployeeEmail_XPath = "//input[@id='_ase1']";
+        public static readonly string AddFirstNamePart1 = "//input[@id='_asf";
+        public static readonly string AddLastNamePart1 = "//input[@id='_asl";
+        public static readonly string AddEmailPart1 = "//input[@id='_ase";
         public static readonly string SaveEmployee_XPath = "//button[@id='_as_save_multiple']";
-        // //input[@id='_asf2']
+        public static readonly string Part2 = "']";
+        
 
         public static IWebElement GetAddEmployees(IWebDriver wd)
         {
@@ -32,7 +36,7 @@ namespace HumanityTest.Page.Objects
 
         public static IWebElement GetEmployee1(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(Employee1_XPath));
+            return wd.FindElement(By.XPath(EmployeePart1+employee1+EmployeePart2));
         }
 
         public static void ClickEmployee1(IWebDriver wd)
@@ -42,7 +46,7 @@ namespace HumanityTest.Page.Objects
 
         public static IWebElement GetEmployee2(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(Employee2_XPath));
+            return wd.FindElement(By.XPath(EmployeePart1 + employee2 + EmployeePart2));
         }
 
         public static void ClickEmployee2(IWebDriver wd)
@@ -52,7 +56,7 @@ namespace HumanityTest.Page.Objects
 
         public static IWebElement GetEmployee3(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(Employee3_XPath));
+            return wd.FindElement(By.XPath(EmployeePart1 + employee3 + EmployeePart2));
         }
 
         public static void ClickEmployee3(IWebDriver wd)
@@ -60,35 +64,39 @@ namespace HumanityTest.Page.Objects
             GetEmployee3(wd).Click();
         }
 
-        public static IWebElement GetAddEmployeeFirstName(IWebDriver wd)
+
+        public static int i;   
+
+        public static IWebElement GetFirstName(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(AddEmployeeFirstName_XPath));
+             return wd.FindElement(By.XPath(AddFirstNamePart1 + i + Part2));
         }
 
-        public static void SendAddEmployeeFirstName(IWebDriver wd, string data)
+        public static void SendFirstName(IWebDriver wd, string data)
         {
-            GetAddEmployeeFirstName(wd).SendKeys(data);
+            GetFirstName(wd).SendKeys(data);
         }
 
-        public static IWebElement GetAddEmployeeLastName(IWebDriver wd)
+        public static IWebElement GetLastName(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(AddEmployeeLastName_XPath));
+             return wd.FindElement(By.XPath(AddLastNamePart1 + i + Part2));
         }
 
-        public static void SendAddEmployeeLastName(IWebDriver wd, string data)
+        public static void SendLastName(IWebDriver wd, string data)
         {
-            GetAddEmployeeLastName(wd).SendKeys(data);
+            GetLastName(wd).SendKeys(data);
         }
 
-        public static IWebElement GetAddEmployeeEmail(IWebDriver wd)
+        public static IWebElement GetEmail(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(AddEmployeeEmail_XPath));
+                return wd.FindElement(By.XPath(AddEmailPart1 + i + Part2));
         }
 
-        public static void SendAddEmployeeEmail(IWebDriver wd, string data)
+        public static void SendEmail(IWebDriver wd, string data)
         {
-            GetAddEmployeeEmail(wd).SendKeys(data);
+            GetEmail(wd).SendKeys(data);
         }
+    
 
         public static IWebElement GetSaveEmployee(IWebDriver wd)
         {
@@ -99,6 +107,7 @@ namespace HumanityTest.Page.Objects
         {
             GetSaveEmployee(wd).Click();
         }
+
     }
 }
 

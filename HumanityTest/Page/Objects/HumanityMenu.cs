@@ -20,6 +20,16 @@ namespace HumanityTest.Page.Objects
         public static readonly string Reports_XPath = "//a[@id='sn_reports']//span[@class='primNavQtip__inner']";
         public static readonly string Settings_XPath = "//a[@id='sn_admin']";
 
+        public static readonly string DASHBOARD_URL = "https://nebuchadnezzar.humanity.com/app/dashboard/";
+        public static readonly string SHIFTPLANING_URL = "https://nebuchadnezzar.humanity.com/app/schedule/employee/week/overview/overview/14%2c0%2c2020/";
+        public static readonly string TIMECLOCK_URL = "https://nebuchadnezzar.humanity.com/app/timeclock/";
+        public static readonly string LEAVE_URL = "https://nebuchadnezzar.humanity.com/app/requests/vacation/";
+        public static readonly string TRAINING_URL = "https://nebuchadnezzar.humanity.com/app/training/";
+        public static readonly string PAYROLL_URL = "https://nebuchadnezzar.humanity.com/app/payroll/scheduled-hours/";
+        public static readonly string REPORTS_URL = "https://nebuchadnezzar.humanity.com/app/reports/dashboard/";
+        public static readonly string SETTINGS_URL = "https://nebuchadnezzar.humanity.com/app/admin/settings/";
+        public static readonly string STAFF_URL = "https://nebuchadnezzar.humanity.com/app/staff/add/";
+
         public static IWebElement GetDashboard(IWebDriver wd)
         {
             return wd.FindElement(By.XPath(Dashboard_XPath));
@@ -104,22 +114,10 @@ namespace HumanityTest.Page.Objects
         {
             return wd.FindElement(By.XPath(Settings_XPath));
         }
-
         public static void ClickSettings(IWebDriver wd)
         {
             GetSettings(wd).Click();
         }
-
-        // staff url: https://nebuchadnezzar.humanity.com/app/staff/list/load/true/
-        //shiftplanning url: https://nebuchadnezzar.humanity.com/app/schedule/employee/week/overview/overview/7%2c0%2c2020/
-        //timeclock url: https://nebuchadnezzar.humanity.com/app/timeclock/
-        //leave url: https://nebuchadnezzar.humanity.com/app/requests/vacation/
-        //training url: https://nebuchadnezzar.humanity.com/app/training/
-        //payroll url: https://nebuchadnezzar.humanity.com/app/payroll/scheduled-hours/
-        //reports url: https://nebuchadnezzar.humanity.com/app/reports/dashboard/
-        //settings url: https://nebuchadnezzar.humanity.com/app/admin/settings/
-
-
     }
 }
 

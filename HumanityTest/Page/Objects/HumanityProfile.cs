@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace HumanityTest.Page.Objects
 {
     public static class HumanityProfile
     {
         public static readonly string PROFILE_URL = "https://nebuchadnezzar.humanity.com/app/staff/detail/5297838/";
+        public static readonly string PROFILESETTINGS_URL = "https://nebuchadnezzar.humanity.com/app/staff/edit/5297838/";
+        public static readonly string AVAILABILITY_URL = "https://nebuchadnezzar.humanity.com/app/staff/availability/5297838/";
 
-        public static readonly string Profile_XPath = "//div[@id='wrap_us_menu']";
-        public static readonly string Settings_XPath = "//div[contains(@class,'userm userm-mainPage')]//a[contains(text(),'Settings')]";
+
+        public static readonly string Profile_XPath = "//i[@class='icon icon-arrowFullDn j-arrowIconToAvatar navBottom__userArrow']";
+        public static readonly string Profile2_XPath = "//a[contains(text(),'Profile')]";
+        public static readonly string ProfileSettings_XPath = "//div[contains(@class,'userm userm-mainPage')]//a[contains(text(),'Settings')]";
         public static readonly string Availability_XPath = "//div[contains(@class,'userm userm-mainPage')]//a[contains(text(),'Availability')]";
         public static readonly string SignOut_XPath = "//a[contains(text(),'Sign Out')]";
-        public static readonly string HumanityAppVersion_XPath = "//b[contains(text(),'9.13.4')]";
-        //div[@id='humanityAppVersion']
+        public static readonly string AppVersion_XPath = "//b[contains(text(),'9.13.4')]";
+        
 
 
         
@@ -28,17 +33,26 @@ namespace HumanityTest.Page.Objects
         {
             GetProfile(wd).Click();
         }
-    
-    
-
-        public static IWebElement GetSettings(IWebDriver wd)
+        public static IWebElement GetProfile2(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(Settings_XPath));
+            return wd.FindElement(By.XPath(Profile2_XPath));
         }
 
-        public static void ClickSettings(IWebDriver wd)
+        public static void ClickProfile2(IWebDriver wd)
         {
-            GetSettings(wd).Click();
+            GetProfile2(wd).Click();
+        }
+
+
+
+        public static IWebElement GetProfileSettings(IWebDriver wd)
+        {
+            return wd.FindElement(By.XPath(ProfileSettings_XPath));
+        }
+
+        public static void ClickProfileSettings(IWebDriver wd)
+        {
+            GetProfileSettings(wd).Click();
         }
 
         public static IWebElement GetAvailability(IWebDriver wd)
@@ -61,31 +75,9 @@ namespace HumanityTest.Page.Objects
             GetSignOut(wd).Click();
         }
 
-        public static IWebElement GetHumanityAppVersion(IWebDriver wd)
+        public static IWebElement GetAppVersion(IWebDriver wd)
         {
-            return wd.FindElement(By.XPath(HumanityAppVersion_XPath));
-        }
-
-        public static void ClickHumanityAppVersion(IWebDriver wd)
-        {
-            GetHumanityAppVersion(wd).Click();
-        }
-
-        //upload picture
-
-        public static void UploadPicture()
-        {
-            IWebDriver wd = new ChromeDriver(Constants.WEBDRIVER_PATH);
-            wd.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
-            wd.Navigate().GoToUrl("https://nebuchadnezzar.humanity.com/app/staff/edit/5297838/");
-            //wd.FindElement(By.XPath("//span[@id='in-btn']")).Click();
-            //IWebElement fileUpload = wd.FindElement(By.XPath("//span[@id='in-btn']"));
-            //fileUpload.SendKeys(@"C:\Users\Dell Latitude\Desktop\neophoto.jpg");
-
-            //Profile_XPath="//div[@id='wrap_us_menu']"
-            //ili  //i[@class='icon icon-arrowFullDn j-arrowIconToAvatar navBottom__userArrow']
-            //SignOut_XPath="//a[contains(text(),'Sign Out')]";
+            return wd.FindElement(By.XPath(AppVersion_XPath));
         }
     }
 }

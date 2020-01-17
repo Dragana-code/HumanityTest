@@ -116,7 +116,7 @@ namespace HumanityTest
             }
 
             ws.SetCellValue(row, ws.Rows[row].Columns.Count, data);
-            wb.SaveAs(Constants.EXCEL_LOGIN_PATH);//promeniti path pre testiranja
+            wb.SaveAs(Constants.EXCEL_LOGIN_PATH);
             return true;
         }
         //Vraca broj redova

@@ -9,10 +9,9 @@ namespace HumanityTest.Page.Objects
     {
         public static readonly string EDIT_STAFF_URL = "https://nebuchadnezzar.humanity.com/app/staff/edit/5297838/";
         public static readonly string EditDetails_XPath = "//a[contains(text(),'Edit Details')]";
-        public static readonly string UploadPicture_XPath = "//span[@id='in-btn']";
         public static readonly string NickName_XPath = "//input[@id='nick_name']";
-        public static readonly string Photo_Path = @"C:\Users\Dell Latitude\Desktop\neophoto.jpg";
-        public static readonly string PhotoUploadID = "in-btn";
+        public static readonly string Picture_Path = @"C:\Users\Dell Latitude\Desktop\neophoto.jpg";
+        public static readonly string UploadPicture_XPath = "//input[@id='fileupload']";
 
 
         public static IWebElement GetEditDetails(IWebDriver wd)
@@ -30,9 +29,9 @@ namespace HumanityTest.Page.Objects
             return wd.FindElement(By.XPath(UploadPicture_XPath));
         }
 
-        public static void SendUploadPicture(IWebDriver wd, string Photo_Path)
+        public static void UploadPicture(IWebDriver wd)
         {
-            wd.FindElement(By.Id(PhotoUploadID)).SendKeys(Photo_Path);
+            wd.FindElement(By.XPath(UploadPicture_XPath)).SendKeys(Picture_Path);
         }
 
         public static IWebElement GetNickName(IWebDriver wd)

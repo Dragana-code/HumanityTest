@@ -62,7 +62,7 @@ namespace HumanityTest.Page.Objects
             return wd.FindElement(By.XPath(WorkEmail_XPath));
         }
 
-        public static void ClickWorkEmail(IWebDriver wd, string data)
+        public static void SendWorkEmail(IWebDriver wd, string data)
         {
             GetWorkEmail(wd).SendKeys(data);
         }
