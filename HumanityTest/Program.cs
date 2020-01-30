@@ -11,23 +11,25 @@ namespace HumanityTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome, today we are testing www.humanity.com web page.");
-            Console.WriteLine("Please choose:");
-            Console.WriteLine("1 for Manual Add New Employee Testing.");
-            Console.WriteLine("2 for Automatic Add New Employee Testing.");
-            Console.WriteLine("3 for Humanity Edit Staff Testing.");
-            Console.WriteLine("4 for Home Page Testing.");
-            Console.WriteLine("5 for Manual LogIn and SignOut Testing.");
-            Console.WriteLine("6 for Automatic LogIn Testing.");
-            Console.WriteLine("7 for Humanity Menu Testing.");
-            Console.WriteLine("8 for Humanity Profile Testing.");
-            Console.WriteLine("9 for Humanity Settings Testing.");
-            Console.WriteLine("10 for Humanity Staff Testing.");
-            Console.WriteLine("0 for Exit Testing.");
-
-            int m = int.Parse(Console.ReadLine());
+            int m;
             do
             {
+                Console.WriteLine("Welcome, today we are testing www.humanity.com web page.");
+                Console.WriteLine("Please choose:");
+                Console.WriteLine("1 for Manual Add New Employee Testing.");
+                Console.WriteLine("2 for Automatic Add New Employee Testing.");
+                Console.WriteLine("3 for Humanity Edit Staff Testing.");
+                Console.WriteLine("4 for Home Page Testing.");
+                Console.WriteLine("5 for Manual LogIn and SignOut Testing.");
+                Console.WriteLine("6 for Automatic LogIn Testing.");
+                Console.WriteLine("7 for Humanity Menu Testing.");
+                Console.WriteLine("8 for Humanity Profile Testing.");
+                Console.WriteLine("9 for Humanity Settings Testing.");
+                Console.WriteLine("10 for Humanity Staff Testing.");
+                Console.WriteLine("0 for Exit Testing.");
+
+                m = int.Parse(Console.ReadLine());
+            
                 switch (m)
                 {
                     case 1:
